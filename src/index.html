@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AccountOpeningUI</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script>
+  function showAndHideForm(divId){
+    if(divId=='bankApplication'){
+      document.getElementById("bankApplication").style.visibility="hidden";
+      document.getElementById("user_profile").style.visibility="visible";
+      document.getElementById("address_detail").style.visibility="hidden";
+      return false;
+    }
+    if(divId=="user_profile"){
+      document.getElementById("bankApplication").style.visibility="hidden";
+      document.getElementById("user_profile").style.visibility="hidden";
+      document.getElementById("address_detail").style.visibility="visible";
+      return false;
+    }
+    if(divId=="address_detail"){
+      document.getElementById("bankApplication").style.visibility="visible";
+      document.getElementById("user_profile").style.visibility="hidden";
+      document.getElementById("address_detail").style.visibility="didden";
+      return false;
+    }
+
+  }
+  function showAndHide(){
+    //document.getElementById("user_profile").style.visibility="hidden";
+    //document.getElementById("address_detail").style.visibility="hidden";
+  }
+</script>
+</html>

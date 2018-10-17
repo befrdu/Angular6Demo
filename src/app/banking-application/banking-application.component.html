@@ -1,0 +1,115 @@
+<div class="container center-block" style="background:rgb(122, 190, 122)">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div>
+      <legend>Account Opening Application</legend>
+    </div>
+  </div>
+  <p></p>
+  <div id="bankApplication" class="form-group row" *ngIf="showBankApplicationForm">
+    <legend>Select Account Type</legend>
+    <div class="form-group row" *ngIf="response">
+      <div class="col-sm-2"><label for="accountTypeSelect" class="col-sm-2">Account_Type</label></div>
+      <div class="col-sm-4">
+        <select class="form-control" id="accountTypeSelect" (change)="getSelectedOptionText($event)">
+          <option selected value='0'>Select..</option>
+          <option *ngFor="let resp of response" value="resp.id">{{resp.name}}</option>
+        </select>
+      </div>
+      <button class="btn btn-primary col-2" (click)="hideAndShowForm('bankApp')">Next</button>
+    </div>
+  </div>
+  <p></p>
+  <div id="user_profile" class="form-group row" *ngIf="showUserProfileForm">
+    <fieldset>
+      <legend>User_Profile</legend>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="accountType">Account_Type:</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" disabled="disabled" [value]="selectedValue" id="accountType" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="firstName">First_Name:</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" id="firstName" class="form-control" [(ngModel)]="firstName" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="lastName">Last_Name:</label>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" id="lastName" class="form-control" [(ngModel)]="lastName" />
+          {{fulName}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+          <button id="userBack" class="btn btn-primary" (click)="hideAndShowForm('userProfBack')">Back</button>
+          <button id="userNext" class="btn btn-primary" (click)="hideAndShowForm('userProf')">Next</button>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <p></p>
+  <div id="address_detail" class="form-group row" *ngIf="showAddressDetailForm">
+    <fieldset>
+      <legend>Address_Detail</legend>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="fullName">Full Name:</label>
+        </div>
+        <div class="col-sm-4">
+          <input id="fullName" disabled="disabled" [(ngModel)]="fulName" type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="streetName">Street Name:</label>
+        </div>
+        <div class="col-sm-4">
+          <input id="streetName" type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="city">City:</label>
+        </div>
+        <div class="col-sm-4">
+          <input id="city" type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="zipCode">Zip_Code:</label>
+        </div>
+        <div class="col-sm-4">
+          <input id="zipCode" type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="country">Country:</label>
+        </div>
+        <div class="col-sm-4">
+          <input id="country" type="text" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+          <button (click)="hideAndShowForm('addressDetailBack')" class="btn btn-primary">Back</button>
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
